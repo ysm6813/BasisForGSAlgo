@@ -1,0 +1,59 @@
+title: "Basis for GSAlgo"
+title_separator: "-"
+email: "13st_24@gss.hs.kr"
+description: |
+  경산과학고등학교 정보 동아리
+baseurl: '/BasisForGSAlgo'
+url: 'https://ktwin01.github.io'
+timezone: Asia/Seoul
+
+repository: ktwin01/BasisForGSAlgo
+
+permalink: /:categories/:title/
+
+excerpt_separator: <!--more-->
+
+markdown: kramdown
+highlighter: rouge
+lis: false
+excerpt_separator: "\n\n"
+incremental: false
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+whitelist:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-include-cache
+
+paginate: 15
+paginate_path: '/page/:num/'
+
+collections:
+  authors:
+    output: true
+    permalink: /authors/:path/
+  tags:
+    output: true
+    permalink: /tags/:path/
+
+defaults:
+  - scope:
+      path: ''
+      type: authors
+    values:
+      layout: author
+  - scope:
+      path: ''
+      type: tags
+    values:
+      layout: tag
+
+exclude: [README.md, Gemfile, Gemfile.lock]

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>C++ Operation Precendence</title>
+    <meta name="description" content="경산과학고등학교 정보 동아리
+">
+    <link rel="stylesheet" href="/BasisForGSAlgo/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/BasisForGSAlgo/programming/order-of-operation/">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- Basis for GSAlgo instead of blog -->
+        <a class="page-link" href="/BasisForGSAlgo/">blog</a>
+        
+
+        
+          
+          <a class="page-link" href="/BasisForGSAlgo/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">C++ Operation Precendence</h1>
+    <p class="post-meta">March 12, 2020 — 00:00</p>
+  </header>
+
+  <article class="post-content">
+    <p>연산자 우선순위는 사실 코드를 작성하면서 크게 신경쓰지 않는 부분이나. 다른사람이 작성한 코드를 보거나, 내신에는 기가막기게 내기 좋으니 알아두는게 좋다.</p>
+<blockquote>
+  <p><strong>Note:</strong> 항상 비트연산 우선순위 꼬여서 틀린다…</p>
+</blockquote>
+
+<table>
+  <thead>
+    <tr>
+      <th>Precedence</th>
+      <th>Operator</th>
+      <th>Description</th>
+      <th>Associativity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>::</td>
+      <td>Scope resolution</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>a++   a−−</td>
+      <td>Suffix/postfix increment and decrement</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>type()   type{}</td>
+      <td>Functional cast</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>a()</td>
+      <td>Function call</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>a[]</td>
+      <td>Subscript</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>.   -&gt;</td>
+      <td>Member access</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>++a   −−a</td>
+      <td>Prefix increment and decrement</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>+a   −a</td>
+      <td>Unary plus and minus</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>!   ~</td>
+      <td>Logical NOT and bitwise NOT</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>(type)</td>
+      <td>C-style cast</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>*a</td>
+      <td>Indirection (dereference)</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>&amp;a</td>
+      <td>Address-of</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>sizeof</td>
+      <td>Size-of[note 1]</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>co_await</td>
+      <td>await-expression (C++20)</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>new   new[]</td>
+      <td>Dynamic memory allocation</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>delete   delete[]</td>
+      <td>Dynamic memory deallocation</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>.<em>   -&gt;</em></td>
+      <td>Pointer-to-member</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>a*b   a/b   a%b</td>
+      <td>Multiplication, division, and remainder</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>a+b   a−b</td>
+      <td>Addition and subtraction</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>«   »</td>
+      <td>Bitwise left shift and right shift</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>&lt;=&gt;</td>
+      <td>Three-way comparison operator (since C++20)</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>&lt;   &lt;=</td>
+      <td>For relational operators &lt; and ≤ respectively</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>&gt;   &gt;=</td>
+      <td>For relational operators &gt; and ≥ respectively</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>==   !=</td>
+      <td>For relational operators = and ≠ respectively</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>&amp;</td>
+      <td>Bitwise AND</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>^</td>
+      <td>Bitwise XOR (exclusive or)</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>|</td>
+      <td>Bitwise OR (inclusive or)</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>&amp;&amp;</td>
+      <td>Logical AND</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>||</td>
+      <td>Logical OR</td>
+      <td>Left-to-right</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>a?b:c</td>
+      <td>Ternary conditional[note 2]</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>throw</td>
+      <td>throw operator</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>=</td>
+      <td>Direct assignment (provided by default for C++ classes)</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>+=   −=</td>
+      <td>Compound assignment by sum and difference</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>*=   /=   %=</td>
+      <td>Compound assignment by product, quotient, and remainder</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>«=   »=</td>
+      <td>Compound assignment by bitwise left shift and right shift</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>&amp;=   ^=   |=</td>
+      <td>Compound assignment by bitwise AND, XOR, and OR</td>
+      <td>Right-to-left</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>,</td>
+      <td>Comma</td>
+      <td>Left-to-right</td>
+    </tr>
+  </tbody>
+</table>
+
+<blockquote>
+  <p>Reference : <a href="cppreference.com">cppreference.com</a></p>
+</blockquote>
+
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is hosted on <a href="https://github.com" target="_blank">Github</a> Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a> and text generated with <a href="http://hipsum.co" target="_blank">Hipster Ipsum</a>. &#169; 2015</p>
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>

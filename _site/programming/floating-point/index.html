@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Floating point</title>
+    <meta name="description" content="경산과학고등학교 정보 동아리
+">
+    <link rel="stylesheet" href="/BasisForGSAlgo/assets/css/main.css">
+    <link rel="canonical" href="http://localhost:4000/BasisForGSAlgo/programming/floating-point/">
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+</head>
+
+  <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    TeX: {
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$'] ],
+    processEscapes: true,
+  }
+});
+MathJax.Hub.Register.MessageHook("Math Processing Error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+MathJax.Hub.Register.MessageHook("TeX Jax - parse error",function (message) {
+	  alert("Math Processing Error: "+message[1]);
+	});
+</script>
+<script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+  <body>
+
+    <header class="site-header">
+
+  <div class="wrapper">
+
+    <nav class="site-nav">
+
+      <div class="trigger">
+        <!-- Basis for GSAlgo instead of blog -->
+        <a class="page-link" href="/BasisForGSAlgo/">blog</a>
+        
+
+        
+          
+          <a class="page-link" href="/BasisForGSAlgo/about/">about</a>
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+
+      </div>
+    </nav>
+
+  </div>
+
+</header>
+
+
+
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Floating point</h1>
+    <p class="post-meta">March 11, 2020 — 00:00</p>
+  </header>
+
+  <article class="post-content">
+    <p><code class="language-plaintext highlighter-rouge">Floating point</code>(부동소수점)이란 컴퓨터에서 실수를 표현하는 방법중에 하나이다.
+특히 이 글에서는 <code class="language-plaintext highlighter-rouge">IEEE 754</code>의 2진 표기에 대해 알아본다.
+(2진법에 대해서는 다른 글을 참조하라.)</p>
+
+<h1 id="ieee-754">IEEE 754</h1>
+
+<h2 id="부동소수점의-표현">부동소수점의 표현</h2>
+
+<p>부동소수점은 3가지 부분으로 나눠서 표현한다. (MLB부터 순서대로)
+<code class="language-plaintext highlighter-rouge">sign</code>, <code class="language-plaintext highlighter-rouge">exponent</code>, <code class="language-plaintext highlighter-rouge">fraction</code> 각각 부호부, 지수부, 가수부를 뜻하는 말이다. 
+또 <code class="language-plaintext highlighter-rouge">single precision</code>의 경우 32bit, <code class="language-plaintext highlighter-rouge">double precision</code>의 경우 64bit를 사용한다.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th>Sign</th>
+      <th>Exponent</th>
+      <th>Fraction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>single precision</td>
+      <td>1bit</td>
+      <td>8bit</td>
+      <td>23bit</td>
+    </tr>
+    <tr>
+      <td>double precision</td>
+      <td>1bit</td>
+      <td>11bit</td>
+      <td>52bit</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>각각의 부분이 어떻게 저장되는지 적어보면 다음과 같이 표현할 수 있다.</p>
+
+<p>single precision: SEEEEEEE EFFFFFFF FFFFFFFF FFFFFFFF<br />
+double precision: SEEEEEEE EEEEFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF FFFFFFFF</p>
+
+<p>이제 각각의 부분에 대해서 좀더 살펴 보자.</p>
+
+<h3 id="부호부">부호부</h3>
+<p>부호를 나타내는 부분이다. (부동 소수점의 경우 절대값 부호화를 사용한다)</p>
+
+<p>0일때 양수 1일때 음수를 뜻한다</p>
+
+<h3 id="지수부">지수부</h3>
+
+<p>부동소수점이라는 이름에 맞게 소수점을 움직여주는데, 그때 2의 거듭제곱을 이용해서 소수점을 옴직일 수 있다.</p>
+
+<p>지수부는 2의 거듭제곱에서 지수를 나타내는 값으로 음수가 될수도 있고, 양수가 될 수도 있으므로 <code class="language-plaintext highlighter-rouge">bias</code>를 이용해서 양과 음을 모두 가지는 지수를 나타낸다
+single precision(32bit)일 때 bias는 $2^7-1$이 된다. <br />
+double precision(64bit)일 때 bias는 $2^{10}-1$이다.</p>
+
+<p>지수부가 나타내는 수에서 bias를 뺀 값이 실제 지수가 된다.</p>
+
+<h3 id="가수부">가수부</h3>
+<p>가수부는 정규화 되어있다. 이 말은 2의 거듭제곱을 이용해서 같은 소수를 여러개의 형태로 나타낼 수 있는데 그중에서 소수점 왼쪽의 수가 1되게 했다는 뜻이다.</p>
+<blockquote>
+  <p><strong>Example:</strong> $101.111 \to 1.01111*2^2$</p>
+</blockquote>
+
+<p>정규화가 되어있기 때문에 소수점 아래 부분만 지수부에 표현되어 있다.</p>
+
+<h3 id="2진수로-나타내기">2진수로 나타내기</h3>
+<p>다음과 같은 과정을 거쳐서 2진수로 나타낼 수 있다.</p>
+
+<ol>
+  <li>부호부가 0이면 양수, 1이면 음수로 설정한다.</li>
+  <li>가수부에 있는 값을 0.f로 바꿔준 다음 1을 더해준다.</li>
+  <li>지수부의 수가 $a$라고 하면 $2^{a-bias}$를 곱해준다. (bias는 위에서 언급한 것과 같이 singleprecision에서 127, double precision에서 1023이다)</li>
+</ol>
+
+<hr />
+
+<h2 id="예외-규칙">예외 규칙</h2>
+
+<h3 id="denormalized">Denormalized</h3>
+<p>만약 지수부가 모두 0으로만 이루어져 있다면 다면 정규화 되지 않은것으로 생각을 한다.</p>
+
+<p>그리고 지수부는 single precision일때 $2^{-126}$이고 double precision일때 $2^{-1022}$가 된다.</p>
+
+<h3 id="영">영</h3>
+<p>부호부를 제외한 모든 값이 0이 될때 +0, -0이 된다.<br />
+주의할 점은 부호가 다른것은 개별적으로 존재하지만 비교하면 같다는 결과가 나온다.</p>
+
+<h3 id="무한">무한</h3>
+<p>지수부가 모두 1이고 가수부가 모두 0이면 $+\infty$, $-\infty$가 된다</p>
+
+<h3 id="숫자가-아닌-것">숫자가 아닌 것</h3>
+<p>NaN(not a number)는 지수부가 모두 1이지만 가수부가 모두 0이 아닌 것이다.</p>
+
+<blockquote>
+  <p>참조: <a href="https://steve.hollasch.net/cgindex/coding/ieeefloat.html">https://steve.hollasch.net/cgindex/coding/ieeefloat.html</a></p>
+</blockquote>
+
+  </article>
+
+</div>
+
+      </div>
+    </div>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+  	<p>This site was built using <a href="http://jekyllrb.com" target="_blank">Jekyll</a> and is hosted on <a href="https://github.com" target="_blank">Github</a> Photos from <a href="https://unsplash.com" target="_blank">Unsplash</a> and text generated with <a href="http://hipsum.co" target="_blank">Hipster Ipsum</a>. &#169; 2015</p>
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
