@@ -1,6 +1,7 @@
 ---
 layout: post
 title : C++ Operation Precendence
+author: JaeyunK
 categories : Programming
 --- 
 

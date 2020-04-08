@@ -1,6 +1,7 @@
 ---
 layout: post
 title : Floating point
+author: JaeyunK
 categories: Programming
 tags: [FloatingPoint, DataType, IEEE754]
 ---

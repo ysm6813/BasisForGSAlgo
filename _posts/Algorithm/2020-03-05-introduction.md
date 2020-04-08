@@ -1,7 +1,7 @@
 ---
 layout: post
 title : 1.Introduction
-author: Jaeyun Kim
+author: JaeyunK
 tags: [time complexity, sapce complexity, computation]
 categories: algorithm
 use_math: true
