@@ -1,6 +1,6 @@
 var store = [{
         "title": "김재윤",
-        "excerpt":" ","categories": [],
+        "excerpt":"경산과학고 2학년, 경산과학고 정보동아리 GSAlgo의 노동력  ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/BasisForGSAlgo/authors/JaeyunK/",
         "teaser":null},{
