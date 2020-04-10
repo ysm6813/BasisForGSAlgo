@@ -13,4 +13,9 @@ var store = [{
         "excerpt":"연산자 우선순위는 사실 코드를 작성하면서 크게 신경쓰지 않는 부분이나. 다른사람이 작성한 코드를 보거나, 내신에는 기가막기게 내기 좋으니 알아두는게 좋다. Note: 항상 비트연산 우선순위 꼬여서 틀린다… Precedence Operator Description Associativity 1 :: Scope resolution Left-to-right 2 a++   a−− Suffix/postfix increment and decrement Left-to-right 2 type()   type{} Functional cast Left-to-right 2 a() Function call Left-to-right...","categories": ["Programming"],
         "tags": [],
         "url": "http://localhost:4000/BasisForGSAlgo/programming/order-of-operation/",
+        "teaser":null},{
+        "title": "2.Binary search",
+        "excerpt":"앞에서 이상한? 복잡도니 컴퓨터니를 얘기해놓고 뭔 이상한 영어인가 싶겠지만… Binary search는 중요하고 심지어 이미 사용해본 적이 있을 것이다. Binary search를 번역하면 이분 탐색이 되는데, 이 이분 탐색은 정렬된 데이터에서(단조성을 띄고 있을때) 아주 많이 유용하게 쓰인다. 그냥 얘기를 하자면, 중요하다. Problems 1-1 길이가 n인 정수형 일차원 배열에 값들이 저장되어 있다. 주어진...","categories": ["algorithm"],
+        "tags": ["binary search"],
+        "url": "http://localhost:4000/BasisForGSAlgo/algorithm/binary-search/",
         "teaser":null},]
