@@ -3,8 +3,7 @@ layout: post
 title : 1.Introduction
 author: JaeyunK
 tags: [time complexity, sapce complexity, computation]
-categories: Algorithm
-use_math: true
+categories: [Algorithm]
 ---
 
 

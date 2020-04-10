@@ -1,6 +1,11 @@
 var store = [{
+        "title": "김재윤",
+        "excerpt":"경산과학고등학교 2학년 재학중.   GSAlgo 열정페이 담당.   E-mail : ktwin01@icloud.com  ","categories": [],
+        "tags": [],
+        "url": "http://localhost:4000/BasisForGSAlgo/authors/JaeyunK/",
+        "teaser":null},{
         "title": "1.Introduction",
-        "excerpt":"이 교재?를 쓰는 사람(JayunK)은 문제를 푸는 것이 최고라고 생각을 한다. (그러면서 지가 더 안풀죠?) JaeyunK는 설명을 하기 싫어서 본인이 생각하게 하는 것을 좋아하기 때문에, 설명은 거의 없이 교재를 만들려고 문제만 넣으려고 했다… 그러나 딱 봐도, 욕을 먹을거 같아서(…) 정답을 약간씩 넣어주면서 만들려고 한다. (사실 성실하게 넣지는 않는다..) 추가로 이 교재를...","categories": ["algorithm"],
+        "excerpt":"이 교재?를 쓰는 사람(JayunK)은 문제를 푸는 것이 최고라고 생각을 한다. (그러면서 지가 더 안풀죠?) JaeyunK는 설명을 하기 싫어서 본인이 생각하게 하는 것을 좋아하기 때문에, 설명은 거의 없이 교재를 만들려고 문제만 넣으려고 했다… 그러나 딱 봐도, 욕을 먹을거 같아서(…) 정답을 약간씩 넣어주면서 만들려고 한다. (사실 성실하게 넣지는 않는다..) 추가로 이 교재를...","categories": ["Algorithm"],
         "tags": ["time complexity","sapce complexity","computation"],
         "url": "http://localhost:4000/BasisForGSAlgo/algorithm/introduction/",
         "teaser":null},{

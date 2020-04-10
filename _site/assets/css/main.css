@@ -63,6 +63,28 @@ pre > code { border: 0; padding-right: 0; padding-left: 0; }
 /** Clearfix */
 .wrapper:before, .wrapper:after { content: ""; display: table; clear: both; }
 
+/** author */
+#author-image { top: 30px; left: 0; width: 60px; height: 60px; border-radius: 100%; background-size: cover; }
+
+#cover-author-image { left: 80px; top: 78px; /* 78px = (310(#cover height) - 144(self height)) / 2 */ width: 144px; height: 144px; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); border-radius: 100%; background-size: cover; }
+
+/* cover */
+#cover { display: table; width: 100%; height: 310px; padding: 0; background: no-repeat center; background-size: cover; }
+
+#cover > * { display: table-cell; position: relative; vertical-align: middle; text-align: center; background-color: rgba(12, 12, 48, 0.3); overflow: hidden; z-index: 2; }
+
+#cover h1, #cover p { width: 80%; /* @@iolo */ max-width: 780px; margin: 0 auto; color: #fff; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; }
+
+#cover h1 { font-size: 36px; line-height: 52px; /* 52px = 36(font-size) + 16(line-spacing) */ }
+
+#cover p { font-size: 14px; line-height: 22px; /* 22px = 14(font-size) + 8(line-spacing) @@iolo */ }
+
+#cover h1 + p { padding-top: 14px; /* 14px = 30 - 16(above line-spacing) */ }
+
+#cover a, #cover a:link, #cover a:visited, #cover a:active, #cover a:hover { color: #fff; }
+
+#cover video { display: none; /* show/remove by script */ position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -2; object-fit: cover; }
+
 /** Site header   ********************************************************** */
 .site-header { border-bottom: 1px solid #ddd; background-color: #fff; opacity: 0.75; position: fixed; left: 0px; top: 0px; height: 56px; width: 100%; z-index: 50; }
 

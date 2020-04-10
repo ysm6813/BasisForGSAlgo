@@ -1,0 +1,20 @@
+---
+layout: default
+---
+
+<div id="cover" class="container"
+     {% if page.cover %}style="background-image: url({{ site.baseurl }}/{{ page.cover }});"{% endif %}>
+    <div>
+        <center>
+            <div id="cover-author-image"
+                {% if page.image %}style="background-image:url({{ site.baseurl }}/{{ page.image }});"{% endif %}>
+            </div> 
+            <h1><b>{{ page.title | default: page.name }}</b></h1> 
+            <h2>{{ page.name }}</h2> 
+        </center>  
+    </div>
+</div>
+
+<div>
+    {{ content }}
+</div>

@@ -5,8 +5,7 @@ layout: default
 
   <header class="post-header">
     <h1 class="post-title">{{ page.title }}</h1>
-    {% assign author = site.authors | where: 'name', page.author | first %}
-    <p class="post-meta">{% if page.author %} {{ page.author }}{% endif %}{% if page.meta %} • {{ page.meta }}{% endif %}</p>
+    <p class="post-meta">{% if page.author %} {{ page.author }}{% endif %}{% if page.categories %} • {{ page.categories }}{% endif %}</p> 
   </header>
 
   <article class="post-content">
@@ -14,8 +13,9 @@ layout: default
   </article>
 
   {% assign author = site.authors | where: 'name', page.author | first %}
+  <h2>글쓴이</h2>
   <a id="post-author" href="{{ site.baseurl }}/{{ author.url }}">
-    <div id="author-image" style="background-image:url({{ site.baseurl }}/{{ author.image | default: '' }});"> </div>
+    <div id="author-image" style="background-image:url(' {{ site.baseurl }}/{{ author.image | default: '' }} ');"> </div>
     <p id="author-name">{{ author.name }}</p>
   </a>
 
