@@ -2,7 +2,7 @@
 layout : post
 title : 2.Binary search
 author : JaeyunK
-categories: algorithm
+categories: Algorithm
 tags: [binary search]
 ---
 
