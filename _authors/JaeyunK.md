@@ -6,4 +6,8 @@ image: /files/authors/JaeyunK.jpeg
 cover: /files/covers/twin_peaks.jpeg
 ---
 
-경산과학고 2학년, 경산과학고 정보동아리 GSAlgo의 노동력
+경산과학고등학교 2학년 재학중.
+
+GSAlgo 열정페이 담당.
+
+E-mail : **ktwin01@icloud.com**
