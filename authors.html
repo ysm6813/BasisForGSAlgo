@@ -1,9 +1,9 @@
 ---
 layout: page
-title: authors
+title: Authors
 permalink: /authors/
 ---
 
 {% for author in site.authors %}
-* [{{ author.name }}]({{ site.baseurl }}/authors/{{ author.name }})
+{% include author_card.html %}
 {% endfor %}

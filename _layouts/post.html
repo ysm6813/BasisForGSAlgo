@@ -12,11 +12,10 @@ layout: default
     {{ content }}  
   </article>
 
-  {% assign author = site.authors | where: 'name', page.author | first %}
   <h2>글쓴이</h2>
-  <a id="post-author" href="{{ site.baseurl }}/{{ author.url }}">
-    <div id="author-image" style="background-image:url(' {{ site.baseurl }}/{{ author.image | default: '' }} ');"> </div>
-    <p id="author-name">{{ author.name }}</p>
-  </a>
-
+  {% for pauthor in page.author %}
+  {% assign author = site.authors | where: 'name', pauthor | first %}
+  {% include author_card.html %}
+  {% endfor %}
+  
 </div>

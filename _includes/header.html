@@ -9,9 +9,9 @@
         <div id="Sidenav" class="sidenav">
           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
           {% for page in site.pages %}
-            {% if page.title %}
-            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-            {% endif %}
+          {% if page.title %}
+          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+          {% endif %}
           {% endfor %}
 
         </div>
@@ -27,7 +27,7 @@
 
 <script>
   function openNav() {
-    document.getElementById("Sidenav").style.width = "250px";
+    document.getElementById("Sidenav").style.width = "280px";
   }
 
   /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
