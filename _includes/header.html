@@ -6,14 +6,17 @@
 
       <div class="trigger">
         <!-- {{ site.title }} instead of blog -->
-        <a class="page-link" href="{{ site.baseurl }}/">blog</a>
-        
+        <div id="Sidenav" class="sidenav">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          {% for page in site.pages %}
+            {% if page.title %}
+            <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            {% endif %}
+          {% endfor %}
 
-        {% for page in site.pages %}
-          {% if page.title %}
-          <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-          {% endif %}
-        {% endfor %}
+        </div>
+        <span style="page-link" onclick="openNav()">&#9776; Menu</span>
+        <a class="page-link" href="{{ site.baseurl }}/">Home</a>
 
       </div>
     </nav>
@@ -21,3 +24,14 @@
   </div>
 
 </header>
+
+<script>
+  function openNav() {
+    document.getElementById("Sidenav").style.width = "250px";
+  }
+
+  /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+  function closeNav() {
+    document.getElementById("Sidenav").style.width = "0";
+  }
+</script>
