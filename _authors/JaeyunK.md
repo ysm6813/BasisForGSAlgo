@@ -10,4 +10,4 @@ cover: /files/covers/twin_peaks.jpeg
 
 GSAlgo 열정페이 담당.
 
-E-mail : **ktwin01@icloud.com**
+E-mail : 13st_24@gss.hs.kr
